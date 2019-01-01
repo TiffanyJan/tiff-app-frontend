@@ -8,4 +8,10 @@ class Header extends React.Component {
 
 }
 
+const styles = {
+    header : {
+        color: "#F63375"
+    }
+};
+
 export default Header; 
