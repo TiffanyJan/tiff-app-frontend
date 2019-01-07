@@ -26,7 +26,9 @@ const styles = {
         textAlign: "center",
         width: '530px',
         margin: 'auto',
-        maxWidth: '530px'
+        maxWidth: '530px',
+        fontWeight: 200,
+        fontSize: '20px'
     },
 }
 

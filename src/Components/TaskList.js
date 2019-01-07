@@ -25,16 +25,14 @@ class TaskList extends React.Component {
         ];
 
         return (
-            <div>
-                {
-                    listOfTasks.map((task, i) => 
-                        <Task taskDescription={task.description} key={i} />
-                    )
-                }
+            <div >
+                {listOfTasks.map((task, i) => <Task  taskDescription={task.description} key={i} />)}
             </div>
+
         );
     }
 
 }
+
 
 export default TaskList;

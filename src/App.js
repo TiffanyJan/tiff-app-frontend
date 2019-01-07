@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import Header from './Components/Header'; 
 import TaskList from './Components/TaskList';
+import TaskEntry from './Components/TaskEntry';
 
 class App extends Component {
   render() {
     return (
       <div style={ sectionStyle }>
         <Header />
+        <TaskEntry />
         <TaskList />
       </div>
   
