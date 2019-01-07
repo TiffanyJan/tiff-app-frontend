@@ -5,17 +5,28 @@ class TaskEntry extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state={
+        this.state = {
             taskDescription: ""
         };
 
-      
+        //event binding function
         this.onSaveClicked = this.onSaveClicked.bind(this);
         this.onTaskTestFieldUpdated = this.onTaskTestFieldUpdated.bind(this);
     }
 
     onSaveClicked() {
-        alert("New Task Saved!");
+
+        const taskToBeAdded = {
+            id: (Math.random() * 100),
+            description: this.state.taskDescription,
+            completed: false
+        };
+
+        this.props.onSaveTaskHandler(taskToBeAdded);
+
+        this.setState({
+            taskDescription: ""
+        }); //this bit clears the text field + updates what's typed
     }
 
     onTaskTestFieldUpdated(event) {
@@ -26,7 +37,7 @@ class TaskEntry extends React.Component {
         });
     }
 
-    render(){
+    render() {
         return (
             <div style={styles.header} className="row">
                 <div className="col">
@@ -40,16 +51,15 @@ class TaskEntry extends React.Component {
     }
 }
 
-const styles= {
-    header : {
+const styles = {
+    header: {
         textAlign: "center",
         margin: 'auto',
         maxWidth: '400px',
         paddingTop: "40px",
         paddingBottom: "60px",
     }
-    
-}
 
+}
 
 export default TaskEntry; 

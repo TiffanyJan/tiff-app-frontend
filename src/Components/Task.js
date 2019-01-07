@@ -5,7 +5,7 @@ class Task extends React.Component {
     render() {
         return (
             <div className="row" style={styles.taskRow}>
-                <div className="col">
+                <div className="col" style={styles.taskDescription}>
                     {this.props.taskDescription}
                 </div>
                 <div className="col">
@@ -30,6 +30,9 @@ const styles = {
         fontWeight: 200,
         fontSize: '20px'
     },
-}
+    taskDescription: {
+        color: "Blue"
+    },
+};
 
 export default Task; 
