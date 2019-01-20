@@ -15,6 +15,8 @@ class TaskEntry extends React.Component {
     }
 
     onSaveClicked() {
+        if(this.state.taskDescription == "")
+          return;
 
         const taskToBeAdded = {
             id: (Math.random() * 100),
@@ -30,7 +32,7 @@ class TaskEntry extends React.Component {
 
     onTaskTestFieldUpdated(event) {
         const description = event.target.value;
-
+      
         this.setState({
             taskDescription: description
         });
@@ -40,7 +42,7 @@ class TaskEntry extends React.Component {
         return (
             <div style={styles.header} className="row">
                 <div className="col">
-                    <input type="text" value={this.state.taskDescription} onChange={this.onTaskTestFieldUpdated} />
+                    <input type="text"  placeholder="Please enter a task" value={this.state.taskDescription} onChange={this.onTaskTestFieldUpdated} />
                 </div>
                 <div className="col">
                     <input type="button" value="Save" onClick={this.onSaveClicked} />
