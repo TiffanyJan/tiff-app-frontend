@@ -2,6 +2,15 @@ import React from 'react';
 
 class Task extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.removeTask = this.removeTask.bind(this);
+    }
+
+    removeTask(id) {
+        this.props.removeTask(this.props.id)
+    }
+
     render() {
         return (
             <div className="row" style={styles.taskRow}>
@@ -9,10 +18,7 @@ class Task extends React.Component {
                     {this.props.taskDescription}
                 </div>
                 <div className="col">
-                    <input type="button" value="Delete" />
-                </div>
-                <div className="col">
-                    <input type="button" value="Done" />
+                    <input type="button" value="Done" onClick={this.removeTask} />
                 </div>
             </div>
         );

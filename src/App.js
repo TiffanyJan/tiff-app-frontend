@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './Components/Header';
 import TaskList from './Components/TaskList';
 import TaskEntry from './Components/TaskEntry';
+import { accessSync } from 'fs';
 
 class App extends Component {
 
@@ -12,6 +13,7 @@ class App extends Component {
       tasks: []
     };
     this.addTask = this.addTask.bind(this);
+    this.removeTask = this.removeTask.bind(this);
   }
 
   addTask(task) {
@@ -22,12 +24,21 @@ class App extends Component {
     });
   }
 
+  removeTask(id){
+    console.log(id);
+    let currentListOfTasks = this.state.tasks;
+    currentListOfTasks.splice(id,1);
+    this.setState({
+      tasks: currentListOfTasks
+    });
+  }
+
   render() {
     return (
       <div style={sectionStyle}>
         <Header />
         <TaskEntry onSaveTaskHandler={this.addTask} />
-        <TaskList tasks={this.state.tasks} />
+        <TaskList tasks={this.state.tasks} removeTask={this.removeTask} />
       </div>
 
     );
