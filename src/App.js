@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Header from './Components/Header';
 import TaskList from './Components/TaskList';
 import TaskEntry from './Components/TaskEntry';
-import { accessSync } from 'fs';
 
 class App extends Component {
 
@@ -36,7 +35,7 @@ class App extends Component {
   render() {
     return (
       <div style={sectionStyle}>
-        <Header />
+        <Header taskLength={this.state.tasks.length}/>
         <TaskEntry onSaveTaskHandler={this.addTask} />
         <TaskList tasks={this.state.tasks} removeTask={this.removeTask} />
       </div>
