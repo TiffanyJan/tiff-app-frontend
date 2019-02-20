@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './Components/Header';
 import TaskList from './Components/TaskList';
 import TaskEntry from './Components/TaskEntry';
+import TasksService from './service/tasks';
 
 class App extends Component {
 
@@ -15,7 +16,19 @@ class App extends Component {
     this.removeTask = this.removeTask.bind(this);
   }
 
-  addTask(task) {
+  async componentDidMount() {
+    const tasks = await TasksService.getTasks();
+    this.setState({tasks: tasks});
+}
+
+  async addTask(task) {
+    
+    const response = await TasksService.saveTask(task);
+
+    console.log(response);
+
+    task.taskId = response.insertId;
+    
     let currentListOfTasks = this.state.tasks;
     currentListOfTasks.push(task);
     this.setState({

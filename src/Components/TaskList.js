@@ -8,11 +8,11 @@ class TaskList extends React.Component {
         return (
             <div >
                 {this.props.tasks.map((task, i) => 
-                <Task removeTask={this.props.removeTask} taskDescription={task.description} key={i} id={i} />)}
+                <Task removeTask={this.props.removeTask} taskId ={task.taskId} taskDescription={task.Description} key={i} id={i} />)}
             </div>
         );
     }
 }
-//do the styling on task.js file
+
 
 export default TaskList;
