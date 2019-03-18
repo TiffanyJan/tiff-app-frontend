@@ -17,18 +17,19 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    const tasks = await TasksService.getTasks();
-    this.setState({tasks: tasks});
+    // const tasks = await TasksService.getTasks();
+    // this.setState({tasks: tasks});
 }
 
   async addTask(task) {
     
-    const response = await TasksService.saveTask(task);
+    // const response = await TasksService.saveTask(task);
 
-    console.log(response);
+    // console.log(response);
 
-    task.taskId = response.insertId;
+    // task.taskId = response.insertId;
     
+    console.log(task)
     let currentListOfTasks = this.state.tasks;
     currentListOfTasks.push(task);
     this.setState({
